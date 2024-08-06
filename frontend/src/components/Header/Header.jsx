@@ -22,7 +22,7 @@ const Header = () => {
     <header className="header flex items-center py-4 ">
       <div className="container flex items-center justify-between bg-red-200">
         {/* Logo */}
-        <div className="w-[192px] mt-2 ml-[103px]">
+        <div className="w-[192px] mt-2 ml-[100px]">
           <img src={logo} alt="Logo" className="w-full h-full" />
         </div>
 
