@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { BiTimer } from 'react-icons/bi';
-import logo from '../../assets/HomePageIcons/logo.png';
+import logo from '../../assets/images/HomePageIcons/logo.png';
 
 const NavLinks = [
   {
@@ -19,10 +19,10 @@ const NavLinks = [
 
 const Header = () => {
   return (
-    <header className="header flex items-center py-4 ">
-      <div className="container flex items-center justify-between bg-red-200">
+    <header className="header flex items-center py-[40px] border-solid border-4 border-red-700 ">
+      <div className="container flex items-center justify-between bg-green-200">
         {/* Logo */}
-        <div className="w-[192px] mt-2 ml-[100px]">
+        <div className="w-[192px] mt-2 ml-[103px] border-solid border-4 border-red-700">
           <img src={logo} alt="Logo" className="w-full h-full" />
         </div>
 
