@@ -19,10 +19,10 @@ const NavLinks = [
 
 const Header = () => {
   return (
-    <header className="header flex items-center py-[40px] border-solid border-4 border-red-700 ">
-      <div className="container flex items-center justify-between bg-red-200">
+    <header className="header flex items-center py-[40px]">
+      <div className="container h-[100px] flex items-center justify-between">
         {/* Logo */}
-        <div className="w-[192px] mt-2 ml-[103px] border-solid border-4 border-red-700">
+        <div className="w-[192px] mt-2 ">
           <img src={logo} alt="Logo" className="w-full h-full" />
         </div>
 
