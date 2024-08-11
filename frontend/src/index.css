@@ -10,7 +10,7 @@
 
 @layer components{
     .container{
-        @apply max-w-full w-[1440px] px-10 mx-auto;
+        @apply max-w-full w-[1440px] px-[50px] mx-auto;
     }
 
     .btn{
@@ -30,7 +30,7 @@
     }
 
     .hero__section{
-        @apply bg-[url('./assets/images/hero-bg.png')] bg-no-repeat bg-center bg-cover
+        @apply bg-[url('./assets/images/HomePageIcons/bg_img_math.png')] bg-no-repeat bg-center bg-cover
     }
 
     .form__label{

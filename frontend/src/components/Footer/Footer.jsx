@@ -14,7 +14,7 @@ const Footer = () => {
         <div className="flex items-center space-x-0.5">
           <div >
             <img src={logo2} alt="Logo" className="w-[120px] h-auto" />
-          </div> {/* Dummy logo */}
+          </div> 
           <span className="font-semibold text-lg">| 2024</span>
         </div>
         <span className="font-semibold">www.studymate.com</span>

@@ -20,7 +20,7 @@ const NavLinks = [
 
 const Header = () => {
   return (
-    <header className="header flex items-center py-[10px]">
+    <header className="header flex items-center">
       <div className="container h-[100px] flex items-center justify-between">
         {/* Logo */}
         <div className="w-[192px] mt-2 ">
