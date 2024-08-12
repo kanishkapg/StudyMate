@@ -225,6 +225,32 @@ const SignUp = () => {
               />
             </div>
           </div>
+
+          <div className="w-full flex pl-4 pr-4 justify-end items-center space-x-12">
+            <div className='w-1/2'>
+              <label className="block text-gray-700 text-sm font-bold mb-2">Child's Email Address</label>
+              <input 
+                className="w-full bg-blue-100 text-gray-700 border border-gray-300 rounded-lg py-2 px-4" 
+                type="email" 
+                placeholder="Enter Your Child's Email Address" 
+              />
+            </div>
+            <div className="w-1/2">
+              <button className="w-full justify-end bg-blue-700 text-white mt-6 py-2 px-4 rounded-lg hover:bg-blue-800">
+                Continue
+              </button>
+            </div>
+          </div>
+
+          <div className="w-full flex pl-4 pr-4 justify-end items-center space-x-12">
+            <div className="w-1/2"></div>
+            <div className="w-1/2">
+              <p className="text-center">
+                <Link to="/login" className="text-sm text-blue-500 hover:underline">Back to Login Page</Link>
+              </p>
+            </div>
+          </div>
+          
         </form>
 
       </div>
