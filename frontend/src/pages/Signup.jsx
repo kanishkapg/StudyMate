@@ -1,12 +1,18 @@
-import React from 'react';
+import React, {useState} from 'react';
 import SignUpTest from '../components/SignUp/SignUpTest';
 import logo2 from '../assets/images/HomePageIcons/logo2.png'
 import studentImg from '../assets/images/LoginPageIcons/student.png'
 import parentImg from '../assets/images/LoginPageIcons/parent.png'
 
 const SignUp = () => {
+  const [role, setRole] = useState(null);
+
+  console.log(role);
+
   return (
-    <div className="flex items-center justify-center min-h-screen">
+    <>
+    {!role && (
+      <div className="flex items-center justify-center min-h-screen">
       <div className="bg-white shadow-md rounded-lg pl-8 pr-8 pb-8 w-full max-w-md">
         
         <div className="flex justify-center">
@@ -26,15 +32,29 @@ const SignUp = () => {
             <div>
               <img src={studentImg} alt="" className="w-[160px]" />
             </div>
-            <button className="bg-skyBlue w-[350px] px-4 py-2 rounded-md text-left shadow-custom-dark">Student</button>
+            <button 
+             className="bg-skyBlue hover:bg-[#0E3167] hover:text-white w-[350px] px-4 py-2 
+             rounded-md text-left shadow-custom-dark "
+             onClick={() => setRole('student')}
+            >
+              Student
+            </button>
           </div>
           <div className="flex justify-between w-full items-center space-x-4">
             <div>
               <img src={parentImg} alt="" className="w-[160px]" />
             </div>
-            <button className="bg-skyBlue w-[350px] px-4 py-2 rounded-md text-left shadow-custom-dark">Parent</button>
+            <button 
+             className="bg-skyBlue hover:bg-[#0E3167] hover:text-white w-[350px] px-4 py-2 
+             rounded-md text-left shadow-custom-dark "
+             onClick={() => setRole('parent')}
+            >
+              Parent
+            </button>
           </div>
         </div>
+
+        
 
         {/* Log In Button */}
         <button className="w-full bg-blue-700 text-white mt-6 py-2 px-4 rounded-lg mb-4 
@@ -49,6 +69,21 @@ const SignUp = () => {
 
       </div>
     </div>
+    )}
+
+    {role === 'student' && (
+      <div>
+        <p>Student Login</p>
+      </div>
+    )}
+
+    {role === 'parent' && (
+      <div>
+        <p>Parent Login</p>
+      </div>
+    )}
+    </>
+    
   );
 };
 
