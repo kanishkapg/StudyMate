@@ -1,28 +1,9 @@
 import React, { useState } from 'react';
 
 const SignUpTest = () => {
-  const [role, setRole] = useState(null);
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
-      {/* Role Selection */}
-      {!role && (
-        <div className="flex space-x-4 mb-8">
-          <button
-            className="bg-blue-500 text-white px-4 py-2 rounded-md"
-            onClick={() => setRole('student')}
-          >
-            I am a Studentt
-          </button>
-          <button
-            className="bg-green-500 text-white px-4 py-2 rounded-md"
-            onClick={() => setRole('parent')}
-          >
-            I am a Parent
-          </button>
-        </div>
-      )}
-
       {/* Student Sign Up Form */}
       {role === 'student' && (
         <div className="bg-white shadow-lg rounded-lg p-8 max-w-md w-full">

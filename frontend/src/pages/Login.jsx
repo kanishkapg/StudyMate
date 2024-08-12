@@ -1,6 +1,7 @@
 import React from 'react';
 import logo2 from '../assets/images/HomePageIcons/logo2.png'
 import googleIcon from '../assets/images/LoginPageIcons/google_img.png'
+import {Link} from 'react-router-dom'
 
 
 const Login = () => {
@@ -17,7 +18,7 @@ const Login = () => {
         
         {/* Google Login Button */}
         <button className="flex items-center justify-center w-full bg-gray-100 text-semibold
-        py-2 px-4 shadow-md rounded-lg mb-8">
+        py-2 px-4 shadow-custom-dark rounded-lg mb-8">
           <img src={googleIcon} alt="" className="w-8 mr-2" />
           Continue with Google
         </button>
@@ -52,7 +53,7 @@ const Login = () => {
         
           {/* Links */}
           <div className="flex justify-between text-sm text-blue-500">
-            <a href="#" className="hover:underline">Create a new account</a>
+            <p> <Link to='/register' className="hover:underline">Create a new account</Link> </p>
             <a href="#" className="hover:underline">Forgot Password</a>
           </div>
         </form>
