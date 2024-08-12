@@ -22,35 +22,40 @@ const Login = () => {
           Continue with Google
         </button>
         
-        {/* User Name Input */}
-        <label className="block text-gray-700 text-sm font-bold mb-2">User Name</label>
-        <input 
-          className="w-full bg-blue-100 text-gray-700 border border-gray-300 rounded-lg py-2 px-4 mb-4" 
-          type="text" 
-          placeholder="Enter Your User Name" 
-        />
+        <form action="">
+          {/* User Name Input */}
+          <label className="block text-gray-700 text-sm font-bold mb-2">User Name</label>
+          <input 
+            className="w-full bg-blue-100 text-gray-700 border border-gray-300 rounded-lg py-2 px-4 mb-4" 
+            type="text" 
+            placeholder="Enter Your User Name" 
+          />
         
-        {/* Password Input */}
-        <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
-        <input 
-          className="w-full bg-blue-100 text-gray-700 border border-gray-300 rounded-lg py-2 px-4 mb-1" 
-          type="password" 
-          placeholder="Enter Your Password" 
-        />
+          {/* Password Input */}
+          <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
+          <input 
+            className="w-full bg-blue-100 text-gray-700 border border-gray-300 rounded-lg py-2 px-4 mb-1" 
+            type="password" 
+            placeholder="Enter Your Password" 
+          />
         
-        {/* Error Message */}
-        <p className="text-red-500 text-sm italic text-right hidden">*Incorrect Username or Password</p>
+          {/* Error Message */}
+          <p className="text-red-500 text-sm italic text-right hidden">
+            *Incorrect Username or Password
+          </p>
         
-        {/* Log In Button */}
-        <button className="w-full bg-blue-700 text-white mt-6 py-2 px-4 rounded-lg mb-4 hover:bg-blue-800">
-          Log in
-        </button>
+          {/* Log In Button */}
+          <button className="w-full bg-blue-700 text-white mt-6 py-2 px-4 rounded-lg mb-4 
+          hover:bg-blue-800">
+            Log in
+          </button>
         
-        {/* Links */}
-        <div className="flex justify-between text-sm text-blue-500">
-          <a href="#" className="hover:underline">Create a new account</a>
-          <a href="#" className="hover:underline">Forgot Password</a>
-        </div>
+          {/* Links */}
+          <div className="flex justify-between text-sm text-blue-500">
+            <a href="#" className="hover:underline">Create a new account</a>
+            <a href="#" className="hover:underline">Forgot Password</a>
+          </div>
+        </form>
       </div>
     </div>
   );
