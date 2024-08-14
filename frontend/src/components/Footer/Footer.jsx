@@ -8,7 +8,7 @@ import appleStoreIcon from '../../assets/images/FooterIcons/appleStoreIcon.jpg'
 
 const Footer = () => {
   return (
-    <footer className='pt-10'>
+    <footer className='pt-4'>
       <div className="container bg-skyBlue w-full h-auto py-8">
       <div className="flex space-x-16 justify-center items-center">
         <div className="flex items-center space-x-0.5">

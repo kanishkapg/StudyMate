@@ -53,7 +53,7 @@ const Features = () => {
   ];
 
   return (
-    <div className="py-4 px-20">
+    <div className="px-20">
       <h2 className="text-[40px] font-extra-bold text-center mb-6 tracking-super-wide text-headingColor">
         FEATURES
       </h2>
