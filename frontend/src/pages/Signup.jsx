@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import SignUpTest from '../components/SignUp/SignUpTest';
 import logo2 from '../assets/images/HomePageIcons/logo2.png'
 import studentImg from '../assets/images/LoginPageIcons/student.png'
 import parentImg from '../assets/images/LoginPageIcons/parent.png'
