@@ -11,6 +11,7 @@ import StudyMateSection from '../components/Downloads'
 import Features from '../components/Features'
 
 import {Link} from 'react-router-dom'
+//Home
 
 
 const Home = () => {
