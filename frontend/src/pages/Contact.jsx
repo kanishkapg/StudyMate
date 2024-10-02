@@ -1,8 +1,13 @@
 import React from 'react'
+import SidePanel from '../components/SidePanel'
+import TaskForm from './TaskForm'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div className='flex justify-between'>
+      <SidePanel/>
+      <TaskForm/>
+    </div>
   )
 }
 

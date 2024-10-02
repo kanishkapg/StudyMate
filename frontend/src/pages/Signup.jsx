@@ -66,7 +66,7 @@ const SignUp = () => {
         
         {/* Links */}
         <div className="flex justify-center text-sm text-blue-500">
-          <a href="#" className="hover:underline">Back to Login</a>
+        <Link to="/login" className="text-sm text-blue-500 hover:underline">Back to Login Page</Link>
         </div>
 
       </div>
@@ -144,7 +144,7 @@ const SignUp = () => {
             <div className="w-1/2"></div>
             <div className="w-1/2">
               <button className="w-full justify-end bg-blue-700 text-white mt-6 py-2 px-4 rounded-lg mb-4 hover:bg-blue-800">
-                Continue
+                <Link to='/otp-submission'>Continue</Link>
               </button>
               <p className="text-center">
                 <Link to="/login" className="text-sm text-blue-500 hover:underline">Back to Login Page</Link>
@@ -236,7 +236,7 @@ const SignUp = () => {
             </div>
             <div className="w-1/2">
               <button className="w-full justify-end bg-blue-700 text-white mt-6 py-2 px-4 rounded-lg hover:bg-blue-800">
-                Continue
+                <Link to='/otp-submission'>Continue</Link>
               </button>
             </div>
           </div>

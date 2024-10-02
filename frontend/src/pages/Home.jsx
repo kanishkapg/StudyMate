@@ -11,8 +11,6 @@ import StudyMateSection from '../components/Downloads'
 import Features from '../components/Features'
 
 import {Link} from 'react-router-dom'
-//Home
-
 
 const Home = () => {
   return (
@@ -41,7 +39,9 @@ const Home = () => {
             <button className="bg-[#005FED] text-white py-2 px-4 rounded-full">
               <Link to='/login'>Log In</Link>
             </button>
-            <button className="bg-[#003687] text-white py-2 px-4 rounded-full"><Link to='/register'>Get Started Free</Link></button>
+            <button className="bg-[#003687] text-white py-2 px-4 rounded-full">
+              <Link to='/register'>Get Started Free</Link>
+            </button>
           </div>
         </div>
 
