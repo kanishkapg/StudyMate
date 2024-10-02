@@ -162,50 +162,77 @@ const ToDoListPage = () => {
           />
         </div>
 
-        <div className="grid">
-        <div className="p-4 bg-white shadow-md rounded-lg w-[300px]">
-      {/* Label and Dropdown */}
-      <div className="mb-4">
-        <label className="block text-gray-700 font-bold mb-2">List</label>
-        <select className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
-          {listOptions.map((option, index) => (
-            <option key={index} value={option}>
-              {option}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div className="w-full mt-4 ">
+          <div className="flex items-center mb-3">
+            <div className="w-1/2 items-center">
+              <p className="block font-bold mb-2">List</p>
+            </div>
+            <div className="w-1/2 flex items-center">
+              <select className="w-auto px-3 py-1 border bg-gray-200 border-gray-300 rounded-md focus:outline-none 
+              focus:ring-2 focus:ring-blue-500">
+                {listOptions.map((option, index) => (
+                  <option key={index} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
 
-      {/* Input to add more options */}
-      <div className="mb-4">
-        <label className="block text-gray-700 font-bold mb-2">Add New List Option</label>
-        <div className="flex space-x-2">
-          <input
-            type="text"
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="Enter new option"
-            value={newOption}
-            onChange={(e) => setNewOption(e.target.value)}
-          />
-          <button
-            onClick={handleAddOption}
-            className="px-3 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-600"
-          >
-            Add
-          </button>
-        </div>
-      </div>
-    </div>
+
+          <div className="flex items-center mb-3">
+            <div className="w-1/2 flex items-center">
+              <p className="block font-bold mb-2">Due Date</p>
+            </div>
+            <div className="w-1/2 flex items-center">
+              <input 
+                type="date" 
+                className="block w-full p-2 border bg-gray-200 border-gray-300 rounded-md shadow-sm 
+                focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-400"
+              />
+            </div> 
+          </div>
+
+          <div className="flex items-center mb-3">
+            <div className="w-1/2 flex items-center">
+              <p className="block font-bold mb-2">Sub Tasks</p>
+            </div>
+            <div className="w-1/2 flex items-center">
+              <input 
+                type="text" 
+                placeholder="+ Add a subtask" 
+                className="block w-full p-2 border bg-gray-200 border-gray-300 rounded-md shadow-sm 
+                focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center mb-3">
+            <div className="w-1/2">
+              <p className="block font-bold mb-2">Prioritized Level</p>
+            </div>
+            <div className="w-1/2 flex items-center">
+              <select 
+                className="block w-full p-2 border bg-gray-200 border-gray-300 rounded-md shadow-sm 
+                focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              >
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
         </div>
 
         {/* Add Task Button */}
         <button
-          className="px-4 py-2 bg-teal-600 text-white rounded hover:bg-teal-700 mt-4 justify-end"
+          className=" w-[40%] mx-auto px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-700 mt-4 justify-end"
           onClick={addTask}
         >
           Add Task
         </button>
       </div>
+
     </div>
   );
 };
