@@ -4,11 +4,30 @@ import SidePanel from "../components/SidePanel";
 import { Link } from "react-router-dom";
 
 // TaskCard component for each task
-const TaskCard = ({ task, index, handleDelete }) => {
+const TaskCard = ({ task, index, handleDelete, handleComplete }) => {
   return (
     <div className="bg-white p-4 mb-2 rounded shadow">
-      <div className="text-xl font-semibold">Task {index + 1}</div>
-      <p>{task}</p>
+      <div className="flex justify-between items-center">
+        <div className="text-xl font-semibold">{task.description}</div>
+        <input
+          type="checkbox"
+          checked={task.completed}
+          onChange={() => handleComplete(index)}
+          className="w-5 h-5"
+        />
+      </div>
+      <p className="mt-2">
+        <strong>List:</strong> {task.list}
+      </p>
+      <p>
+        <strong>Due Date:</strong> {task.dueDate}
+      </p>
+      <p>
+        <strong>Priority Level:</strong> {task.priority}
+      </p>
+      <p>
+        <strong>Sub-tasks:</strong> {task.subTasks}
+      </p>
       <button
         className="mt-2 px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600"
         onClick={() => handleDelete(index)}
@@ -21,13 +40,30 @@ const TaskCard = ({ task, index, handleDelete }) => {
 
 const ToDoListPage = () => {
   const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState("");
+  const [newTask, setNewTask] = useState({
+    description: "",
+    list: "Personal",
+    dueDate: "",
+    subTasks: "",
+    priority: "low",
+    completed: false,
+  });
+
+  const [listOptions, setListOptions] = useState(['Personal', 'Work', 'Study']);
+  const [newOption, setNewOption] = useState('');
 
   // Handle task addition
   const addTask = () => {
-    if (newTask.trim() !== "") {
+    if (newTask.description.trim() !== "") {
       setTasks([...tasks, newTask]);
-      setNewTask(""); // Clear input after adding the task
+      setNewTask({
+        description: "",
+        list: "Personal",
+        dueDate: "",
+        subTasks: "",
+        priority: "low",
+        completed: false,
+      }); // Clear form after adding the task
     }
   };
 
@@ -37,10 +73,16 @@ const ToDoListPage = () => {
     setTasks(updatedTasks);
   };
 
-  const [listOptions, setListOptions] = useState(['Personal', 'Work', 'Study']);
-  const [newOption, setNewOption] = useState('');
 
-  // Handle adding new option
+   // Handle task completion
+   const completeTask = (index) => {
+    const updatedTasks = tasks.map((task, i) =>
+      i === index ? { ...task, completed: !task.completed } : task
+    );
+    setTasks(updatedTasks);
+  };
+
+  // Handle adding new list option
   const handleAddOption = () => {
     if (newOption && !listOptions.includes(newOption)) {
       setListOptions([...listOptions, newOption]);
@@ -123,14 +165,20 @@ const ToDoListPage = () => {
       </div>
 
       {/* 3rd Column: Task Cards (Scrollable) */}
-      <div className="w-[350px] bg-gray-50 p-4 overflow-y-auto">
+      <div className="w-[500px] bg-gray-50 p-4 overflow-y-auto">
         <h2 className="text-lg font-semibold mb-4">Your Tasks</h2>
         <div className="space-y-4">
           {tasks.length === 0 ? (
             <p>No tasks available. Add some tasks to see them here!</p>
           ) : (
             tasks.map((task, index) => (
-              <TaskCard key={index} task={task} index={index} handleDelete={deleteTask} />
+              <TaskCard
+                key={index}
+                task={task}
+                index={index}
+                handleDelete={deleteTask}
+                handleComplete={completeTask}
+              />
             ))
           )}
         </div>
@@ -157,8 +205,8 @@ const ToDoListPage = () => {
             className="w-full h-24 p-2 border bg-gray-200 border-gray-300 rounded focus:outline-none 
             focus:ring-2 focus:ring-gray-500"
             placeholder="+ Add a Description about the Task"
-            value={newTask}
-            onChange={(e) => setNewTask(e.target.value)}
+            value={newTask.description}
+            onChange={(e) => setNewTask({ ...newTask, description: e.target.value })}
           />
         </div>
 
@@ -168,8 +216,11 @@ const ToDoListPage = () => {
               <p className="block font-bold mb-2">List</p>
             </div>
             <div className="w-1/2 flex items-center">
-              <select className="w-auto px-3 py-1 border bg-gray-200 border-gray-300 rounded-md focus:outline-none 
-              focus:ring-2 focus:ring-blue-500">
+              <select 
+              className="w-auto px-3 py-1 border bg-gray-200 border-gray-300 rounded-md focus:outline-none 
+              focus:ring-2 focus:ring-blue-500"
+              value={newTask.list}
+              onChange={(e) => setNewTask({ ...newTask, list: e.target.value })}>
                 {listOptions.map((option, index) => (
                   <option key={index} value={option}>
                     {option}
@@ -189,6 +240,8 @@ const ToDoListPage = () => {
                 type="date" 
                 className="block w-full p-2 border bg-gray-200 border-gray-300 rounded-md shadow-sm 
                 focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-gray-400"
+                value={newTask.dueDate}
+                onChange={(e) => setNewTask({ ...newTask, dueDate: e.target.value })}
               />
             </div> 
           </div>
@@ -203,6 +256,8 @@ const ToDoListPage = () => {
                 placeholder="+ Add a subtask" 
                 className="block w-full p-2 border bg-gray-200 border-gray-300 rounded-md shadow-sm 
                 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                value={newTask.subTask}
+                onChange={(e) => setNewTask({ ...newTask, subTask: e.target.value})}
               />
             </div>
           </div>
@@ -215,6 +270,8 @@ const ToDoListPage = () => {
               <select 
                 className="block w-full p-2 border bg-gray-200 border-gray-300 rounded-md shadow-sm 
                 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                value={newTask.priority}
+                onChange={(e) => setNewTask({ ...newTask, priority: e.target.value })}
               >
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
@@ -226,7 +283,7 @@ const ToDoListPage = () => {
 
         {/* Add Task Button */}
         <button
-          className=" w-[40%] mx-auto px-4 py-2 bg-teal-600 text-white rounded-full hover:bg-teal-700 mt-4 justify-end"
+          className=" w-[40%] mx-auto px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 mt-4 justify-end"
           onClick={addTask}
         >
           Add Task
